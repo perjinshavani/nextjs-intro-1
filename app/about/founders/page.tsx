@@ -1,7 +1,7 @@
 export default function FoundersPage() {
   return (
     <main>
-      Founders
+      <h1>Founders</h1>
     </main>
   );
 }

@@ -10,7 +10,7 @@ export default function AboutLayout({
       <header>
         <Link
           href="/"
-          className="font-rubik_glitch tracking-tighter text-teal-400"
+          className="font-rubik tracking-tighter text-teal-400"
         >
           About layout
         </Link>

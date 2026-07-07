@@ -28,9 +28,9 @@ const atomic_age = Atomic_Age({
 });
 
 const materialSymbols = localFont({
- src:"./fonts/MaterialSymbolsRounded.woff2",
- weight: "100 900",
- variable: "--font-material-symbols"
+  src: "./fonts/MaterialSymbolsRounded.woff2",
+  weight: "100 900",
+  variable: "--font-material-symbols"
 })
 
 export const metadata: Metadata = {
@@ -46,12 +46,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${rubik.variable} ${rubik_glitch.variable} ${atomic_age.variable}  ${materialSymbols.variable} h-full antialiased`}
+      className={`${outfit.variable} ${rubik.variable} ${rubik_glitch.variable} ${atomic_age.variable} ${materialSymbols.variable} h-full antialiased`}
     >
-      <body className="min-h-full selection:bg-green-300 selection:text-black">
-        <MainNav/>
-        {children}
-        </body>
+      <body className="selection:bg-green-300 selection:text-black">
+        <MainNav />
+        <div className="mt-20">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
