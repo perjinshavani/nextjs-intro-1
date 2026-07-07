@@ -9,7 +9,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-rubik: var(--font-rubik);
+  --font-rubik_glitch: var(--font-rubik_glitch);
   --font-outfit: var(--font-outfit);
+  --font-atomicage: var(--font-atomicage);
 }
 
 body {
