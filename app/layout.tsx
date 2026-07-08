@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Rubik, Rubik_Glitch, Atomic_Age } from "next/font/google";
 import localFont from "next/font/local"
 import "./globals.css";
-import Link from "next/link";
 import MainNav from "@/components/navigation/main_nav";
 
 const outfit = Outfit({
