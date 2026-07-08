@@ -7,7 +7,8 @@ interface buttonProps {
 }
 
 function Button({ link, children, className }: buttonProps) {
-  const defaultClassName = "bg-teal-400 text-zinc-950 hover:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 hover:shadow-[0_0_20px_rgba(44,205,166,0.4)]";
+  const defaultClassName =
+    "bg-teal-400 text-zinc-950 hover:-translate-y-0.5 motion-safe:transition-transform motion-safe:duration-300 hover:shadow-[0_0_20px_rgba(44,205,166,0.4)]";
   return (
     <a
       className={`px-8 py-4 flex gap-2 justify-center items-center uppercase font-bold rounded-xl active:scale-95 ${className ? className : defaultClassName}`}
@@ -37,16 +38,16 @@ export default function Hero() {
           the 31st century starts here.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            link="/enroll"
-            className=""
-          >
+          <Button link="/enroll" className="">
             Enroll now
             <span className="material-symbols material-symbols-outlined text-2xl">
               bolt
             </span>
           </Button>
-          <Button link="/classes" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/20">
+          <Button
+            link="/classes"
+            className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/20"
+          >
             View Classes
           </Button>
         </div>
@@ -57,6 +58,7 @@ export default function Hero() {
         src="/space.png"
         fill
         alt=""
+        loading="eager"
       />
     </section>
   );

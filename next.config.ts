@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "futuramaapi.com",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
+
+      
     ],
   },
 };
