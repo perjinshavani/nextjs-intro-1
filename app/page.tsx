@@ -1,6 +1,7 @@
 import Hero from "@/components/hero";
 import data from "@/data/characters.json";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CardProps {
   id?: number;
@@ -12,7 +13,7 @@ interface CardProps {
   image: string | null;
 }
 
-function Card({ name, image }: CardProps) {
+function Card({ name, id, image }: CardProps) {
   return (
     <div className="h-full grid grid-rows-[200px_1fr_auto] gap-4 border border-white/20 rounded-xl overflow-hidden [&_>_*:not(img)]:mx-4 pb-4">
       <h3 className="text-2xl font-bold font-outfit">{name}</h3>
@@ -27,17 +28,17 @@ function Card({ name, image }: CardProps) {
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 25vw, 274px"
       />
 
-      <a
+      <Link
         className="py-3 border rounded-xl text-center uppercase font-semibold border-white/30 hover:outline-2 hover:outline-teal-400"
-        href="#"
+        href={`/character/${id}`}
       >
         View dossier
-      </a>
+      </Link>
     </div>
   );
 }
 
-export default function Home() {
+export default async function Home() {
   const { page, pages, items: characters } = data;
 
   return (
@@ -53,7 +54,7 @@ export default function Home() {
         <ul className="grid grid-cols-[repeat(auto-fill,minmax(26ch,1fr))] gap-4 my-8">
           {characters.slice(0, 8).map((char) => (
             <li key={char.id}>
-              <Card name={char.name} image={char.image} />
+              <Card name={char.name} image={char.image} id={char.id} />
             </li>
           ))}
         </ul>
