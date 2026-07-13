@@ -20,8 +20,6 @@ body {
   font-family: var(--font-rubik), Arial, Helvetica, sans-serif;
 }
 
-
-
 @layer components {
   .material-symbols {
     font-family: var(--font-material-symbols);
