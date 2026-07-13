@@ -1,5 +1,6 @@
 import { getCharacterById } from "@/data/characters";
 import { strToNr } from "@/lib/util";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 // dynamic meta data generation
@@ -55,9 +56,40 @@ export default async function CharacterPage(
   }
 
   return (
-    <main>
-      <h1>{character.name}</h1>
-      <p>{character.status}</p>
+    <main className="pt-20 text-pretty max-w-7xl mx-auto px-4 md:px-16 my-16">
+      <article className="flex gap-4 justify-between">
+        <div>
+          <header>
+            <div className="flex justify-between items-center">
+              <h1 className="font-bold font-outfit text-3xl">
+                {character.name}
+              </h1>
+              <span className="text-current/80">#{character.id}</span>
+            </div>
+          </header>
+          <ul className="flex flex-wrap gap-4 text-sm text-gray-900 font-bold py-2">
+            <li className="rounded-full px-2 py-1 bg-amber-400">
+              Species: {character.species}
+            </li>
+            <li className="rounded-full px-2 py-1 bg-pink-400">
+              Gender: {character.gender}
+            </li>
+            <li className="rounded-full px-2 py-1 bg-violet-400">
+              Status: {character.status}
+            </li>
+          </ul>
+        </div>
+        {character.image && (
+          <Image
+            className="w-1/2"
+            src={character.image}
+            alt={character.name}
+            width={400}
+            height={600}
+            loading="eager"
+          />
+        )}
+      </article>
     </main>
   );
 }
