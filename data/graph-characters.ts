@@ -70,12 +70,17 @@ export type GraphCharacter = {
 };
 
 // type for the operation to get our characters
-type GraphCharacterOperation = {
+type GraphCharactersOperation = {
 	data: { characters: Connection<GraphCharacter> };
 	variables: {
 		limit?: number;
 		offset?: number;
 	};
+};
+
+type GraphCharacterOperation = {
+	data: { character: GraphCharacter };
+	variables: { id: number };
 };
 
 // --- Queries & Fragments ---
@@ -94,7 +99,7 @@ const characterFragment = `
 
 // the Query with limit as a variable, including our fragment
 const charactersQuery = `
-  query MyQuery($limit: Int, $offset: Int) {
+  query getCharacters($limit: Int, $offset: Int) {
     characters(limit: $limit, offset: $offset) {
       edges {
         ...CharacterFields
@@ -102,6 +107,15 @@ const charactersQuery = `
       limit
       offset
       total
+    }
+  }
+  ${characterFragment} 
+`;
+
+const characterQuery = `
+  query getCharacter($id:Int!) {
+    character(characterId: $id) {
+        ...CharacterFields
     }
   }
   ${characterFragment} 
@@ -155,7 +169,7 @@ export async function getCharactersComplex({
 	limit?: number;
 	offset?: number;
 } = {}): Promise<Connection<GraphCharacter>> {
-	const res = await apiFetch<GraphCharacterOperation>({
+	const res = await apiFetch<GraphCharactersOperation>({
 		query: charactersQuery,
 		variables: {
 			limit,
@@ -164,4 +178,13 @@ export async function getCharactersComplex({
 	});
 
 	return res.body.data.characters;
+}
+
+export async function getCharacterComplex(id: number): Promise<GraphCharacter> {
+	const res = await apiFetch<GraphCharacterOperation>({
+		query: characterQuery,
+		variables: { id },
+	});
+
+	return res.body.data.character;
 }

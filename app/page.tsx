@@ -3,6 +3,7 @@ import Link from "next/link";
 import Hero from "@/components/hero";
 import { getCharactersREST } from "@/data/characters";
 import {
+	getCharacterComplex,
 	getCharactersComplex,
 	getCharactersGraphQl,
 } from "@/data/graph-characters";
@@ -85,6 +86,8 @@ export default async function Home() {
 
 	// console.log(gqcharacters[0].name, limit, offset, total);
 
+	// Single character using complex example
+	//console.log(await getCharacterComplex(1));
 	return (
 		<main>
 			<Hero />
