@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/hero";
-import { getCharacters } from "@/data/characters";
+import { getCharactersREST } from "@/data/characters";
+import {
+	getCharactersComplex,
+	getCharactersGraphQl,
+} from "@/data/graph-characters";
 
 interface CardProps {
 	id?: number;
@@ -38,8 +42,48 @@ function Card({ name, id, image }: CardProps) {
 	);
 }
 
-export default function Home() {
-	const { page, pages, items: characters } = getCharacters();
+interface CharacterItem {
+	id: number;
+	name: string;
+	gender: string;
+	status: string;
+	species: string;
+	createdAt: string;
+	image: string | null;
+}
+
+interface CharacterResponse {
+	items: CharacterItem[];
+	total: number;
+	page: number;
+	size: number;
+	pages: number;
+}
+
+export default async function Home() {
+	// -- using the json function --
+	//const { page, pages, items: characters } = getCharacters();
+
+	// -- using the Rest Fetch function --
+	const {
+		page,
+		pages,
+		items: characters,
+	} = (await getCharactersREST(3, 5)) as CharacterResponse;
+
+	// --- Using GraphQl ---
+	// const res = await getCharactersGraphQl();
+	// console.log(res);
+
+	//--- Using the complex GraphQl example ---
+	// const {
+	// 	limit,
+	// 	offset,
+	// 	total,
+	// 	edges: gqcharacters,
+	// } = await getCharactersComplex();
+
+	// console.log(gqcharacters[0].name, limit, offset, total);
 
 	return (
 		<main>
@@ -52,7 +96,8 @@ export default function Home() {
 					Learn from the best (and the most eccentric) in the business.
 				</p>
 				<ul className="grid grid-cols-[repeat(auto-fill,minmax(26ch,1fr))] gap-4 my-8">
-					{characters.slice(0, 8).map((char) => (
+					{/* {characters.slice(0, 8).map((char) => ( */}
+					{characters.map((char) => (
 						<li key={char.id}>
 							<Card name={char.name} image={char.image} id={char.id} />
 						</li>
