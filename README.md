@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nature Explorer
 
-## Getting Started
+## Om projektet
 
-First, run the development server:
+Nature Explorer är en webbapplikation byggd med Next.js, React och TypeScript. Projektet visar olika platser i Sverige och fokuserar på återanvändbara komponenter, responsiv design och modern frontendutveckling.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funktioner
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Visa olika platser
+- Responsiv design
+- Återanvändbara React-komponenter
+- Routing med Next.js App Router
+- Ren och modern design
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tekniker
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Git & GitHub
 
-## Learn More
+## Det här har jag lärt mig
 
-To learn more about Next.js, take a look at the following resources:
+Genom projektet har jag lärt mig att:
+- Bygga applikationer med Next.js
+- Skapa återanvändbara React-komponenter
+- Arbeta med routing och layouts
+- Strukturera ett projekt med App Router
+- Bygga responsiva webbsidor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Framtida förbättringar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Lägga till sökfunktion
+- Lägga till filtrering
+- Förbättra tillgängligheten
+- Publicera projektet med Vercel
 
-## Deploy on Vercel
+## Skapad av
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Perjin Shavani – Frontendutvecklare under utbildning på Lexicon.
